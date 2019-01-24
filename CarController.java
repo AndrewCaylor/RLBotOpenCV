@@ -27,7 +27,7 @@ public class CarController {
 	{
 		double error = getErrorTheta(desiredTheta);
 		
-		if (vroom.stopAngle() > error); //
+		if (vroom.stopAngle() > error);
 	}
 	
 	public static void main(String [] args)
