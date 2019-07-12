@@ -76,6 +76,30 @@ public class ScreenShotIO {
 		catch (Exception e) {}
 	}
 	
+	public static void fullShot(String name)
+	{
+		try
+		{
+			//BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+			BufferedImage image = new Robot().createScreenCapture(new Rectangle(0,0,2560, 1080 ));
+
+			ImageIO.write(image, "png", new File("C:\\Users\\drewh\\Desktop\\RLScreenshot\\"+ name + ".png"));
+		}
+		catch (Exception e) {}
+	}
+	
+	public static void ballCam(String name)
+	{
+		try
+		{
+			//BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+			BufferedImage image = new Robot().createScreenCapture(new Rectangle(1205, 855, 150,25 ));
+
+			ImageIO.write(image, "png", new File("C:\\Users\\drewh\\Desktop\\RLScreenshot\\"+ name + ".png"));
+		}
+		catch (Exception e) {}
+	}
+	
 	public Mat getSrcMat()
 	{
 		try {
@@ -88,11 +112,23 @@ public class ScreenShotIO {
 		}
 	}
 	
-	public Mat getSrcMatCar()
+	public static Mat getSrcMatCar()
 	{
 		try {
 			BufferedImage image = new Robot().createScreenCapture(new Rectangle(2560 - 1440 + 500,30 + 700,500, 200));
 			return buff2Mat(image);
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public BufferedImage getSrcBuffBallCam()
+	{
+		try {
+			BufferedImage image = new Robot().createScreenCapture(new Rectangle(1205, 855, 150,25 ));
+			return image;
 		} catch (AWTException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
